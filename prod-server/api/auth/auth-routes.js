@@ -1,20 +1,24 @@
-"use strict";
-
-var _interopRequireWildcard = require("/Users/b/Code/MEVN-Stack/task-manager/node_modules/@babel/runtime-corejs2/helpers/interopRequireWildcard");
-
-var _interopRequireDefault = require("/Users/b/Code/MEVN-Stack/task-manager/node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault");
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
 
-var _express = _interopRequireDefault(require("express"));
+var _express = require('express');
 
-var controller = _interopRequireWildcard(require("./auth-controller"));
+var _express2 = _interopRequireDefault(_express);
 
-var router = _express.default.Router();
+var _authController = require('./auth-controller');
 
-router.post("/auth", controller.index);
-var _default = router;
-exports.default = _default;
+var controller = _interopRequireWildcard(_authController);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var router = _express2.default.Router();
+
+
+router.post('/auth', controller.index);
+
+exports.default = router;

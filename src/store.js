@@ -1,13 +1,13 @@
-import Vue from "vue";
-import Vuex from "vuex";
-import * as auth from "./services/AuthService";
+import Vue from 'vue'
+import Vuex from 'vuex'
+import * as auth from './services/AuthService'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     isLoggedIn: false,
-    apiUrl: "http://localhost:3000",
+    apiUrl: `${window.location.protocol}//${window.location.hostname}:3000/api`,
     username: null,
     userId: null
   },
@@ -25,7 +25,7 @@ export default new Vuex.Store({
   },
   actions: {
     authenticate(context) {
-      context.commit("authenticate");
+      context.commit('authenticate');
     }
   }
-});
+})

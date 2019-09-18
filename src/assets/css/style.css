@@ -1,17 +1,9 @@
 * {
-    color: rgba(255, 255, 255, 0.9)
+    color: #fff;
 }
 
 .custom-bg-dark {
-    background-color: #373f46;
-}
-
-.custom-bg-darker {
-    background-color: #181b1d;
-}
-
-.custom-bg-darker p {
-    color: rgba(255, 255, 255, 0.8)
+    background-color: #373f46 !important;
 }
 
 nav.navbar {
@@ -23,20 +15,19 @@ a.navbar-brand {
     letter-spacing: 3px;
 }
 
-/* li.nav-item a {
+li.nav-item a {
     text-transform: uppercase;
-} */
+}
 
 @media screen and (max-width: 767px) {
-    div.navbar-collapse {
+    div#navbarCollapse {
         width: 100%;
         position: fixed;
         top: 75px;
         left: 0;
         padding-left: 20px;
         padding-bottom: 5px;
-        background: #373f46;
-        z-index: 10;
+        background-color: #373f46;
     }
 }
 
@@ -47,15 +38,14 @@ div#app-container {
     bottom: 96px;
     width: 100%;
     padding: 2rem;
-    background: #1d2733;
+    background-color: #1d2733;
     overflow: auto;
-    z-index: 1;
 }
 
 footer#custom-footer {
     height: 6rem;
-    background: #373f46;
-    font-size: 0.8rem;
+    background-color: #373f46;
+    font-size: 1rem;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -73,20 +63,30 @@ div#custom-home {
 }
 
 .btn-primary {
-    background: #32aced !important;
+    background-color: #32ACED !important;
 }
 
 .btn-success {
-    background: #4fc08d !important;
+    background-color: #4fc08d !important;
 }
 
 .btn-success:hover {
-    background: #3da978 !important;
+    background-color: #3da978;
 }
 
 form.custom-form {
     max-width: 40rem;
     display: flex;
     flex-direction: column;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal-title,
+.modal-body p {
+    color: #000 !important;
+}
+
+.late {
+    color: #dc3545;
 }

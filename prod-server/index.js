@@ -1,26 +1,36 @@
-"use strict";
+'use strict';
 
-var _interopRequireDefault = require("/Users/b/Code/MEVN-Stack/task-manager/node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault");
+var _express = require('express');
 
-var _express = _interopRequireDefault(require("express"));
+var _express2 = _interopRequireDefault(_express);
 
-var _routes = require("./routes");
+var _routes = require('./routes');
 
-var _env = require("./config/env");
+var _env = require('./config/env');
 
-var app = (0, _express.default)();
-var port = 3000;
+var _db = require('./config/db');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var app = (0, _express2.default)();
+
+
 (0, _env.setEnvironment)(app);
+(0, _db.connectToDB)();
 (0, _routes.registerRoutes)(app);
-app.get("/", function (req, res) {
-  if (process.env.NODE_ENV !== "production") {
-    return res.send("running server in development mode");
-  } else {
-    return res.sendFile("index.html", {
-      root: __dirname + "/../dist/"
-    });
-  }
+
+// All non-API requests made to the server, for example, http://www.homepage.com/,
+// will hit this request, which just returns the main layout, html file
+app.get('*', function (req, res) {
+    if (!process.env.NODE_ENV || process.env.NODE_ENV.toString().trim() !== 'production') {
+        return res.send('Running server in development mode.');
+    } else {
+        // Returns the main index file in production environment
+        return res.sendFile('index.html', { root: __dirname + '/../dist/' });
+    }
 });
-app.listen(port, function () {
-  return console.log("listening on port ".concat(port, " in ").concat(process.env.NODE_ENV, " mode!"));
+
+// Starts the server on the given port
+app.listen(3000, function () {
+    console.log('MEVN app listening on port 3000 in ' + process.env.NODE_ENV + ' mode!');
 });
