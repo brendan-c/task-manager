@@ -6,7 +6,7 @@
       VueJS, and NodeJS technologies.
     </p>
     <hr class="my-4" />
-    <p>Click below to begin managing tasks for users.</p>
+    <p>Click below to begin managing tasks for users</p>
     <router-link to="/tasks" class="btn btn-success btn-lg" role="button"
       >Tasks</router-link
     >

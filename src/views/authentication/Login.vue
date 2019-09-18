@@ -36,7 +36,7 @@ export default {
     onSubmit: function(event) {
       event.preventDefault();
       auth.login();
-      this.$route.push({ name: "home" });
+      this.$router.push({ name: "home" });
     }
   }
 };
